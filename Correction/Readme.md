@@ -25,3 +25,6 @@ vi rotate.yaml
 ```Shell
 ansible-playbook -i inventory rotate.yaml --ask-vault-pass
 ```
+
+
+Lien vers le dossier [corrections](../Correction)
