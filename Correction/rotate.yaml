@@ -4,8 +4,9 @@
   become: true
  
   tasks:
-  - include_vars: mysql.yaml
-    no_log: yes
+  - name: Load mysql vars
+    ansible.builtin.include_vars: mysql.yaml
+    no_log: true
 
   - name: changement pwd mysql
     ansible.builtin.shell: /usr/bin/mysqladmin -u root -p{{ old_pass }} password '{{ new_pass }}'
