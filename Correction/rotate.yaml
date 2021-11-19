@@ -1,0 +1,13 @@
+---
+- hosts: back
+  gather_facts: true
+  become: true
+ 
+  tasks:
+  - include_vars: mysql.yaml
+    no_log: yes
+
+  - name: changement pwd mysql
+    ansible.builtin.shell: /usr/bin/mysqladmin -u root -p{{ old_pass }} password '{{ new_pass }}'
+    ignore_errors: yes
+    no_log: yes

@@ -1,0 +1,11 @@
+---
+- hosts: back
+  vars:
+    mysql_root_password: testPASS123
+  
+  tasks:
+  
+  - name: Init root password for mariadb
+    no_log: true
+    ignore_errors: true
+    ansible.builtin.shell: /usr/bin/mysqladmin -u root password '{{ mysql_root_password }}'
